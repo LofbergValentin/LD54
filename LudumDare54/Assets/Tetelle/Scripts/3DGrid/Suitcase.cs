@@ -50,7 +50,7 @@ public class Suitcase : MonoBehaviour
 		return Points[index];
 	}
 
-	public bool containsFullPoint(List<Vector3> vector3s, Point start)
+	public bool ContainsFullPoint(List<Vector3> vector3s, Point start)
 	{
         bool contains = false;
 		foreach(Vector3 vector3 in vector3s)

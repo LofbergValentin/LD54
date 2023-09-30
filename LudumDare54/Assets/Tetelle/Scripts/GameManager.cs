@@ -26,22 +26,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void SetItemIntoSuitcase(Item item, Point point)
     {
-        bool busy = valise.containsFullPoint(item.Points, point);
+        bool busy = valise.ContainsFullPoint(item.Points, point);
         if (!busy)
         {
             item.IsStocked = true;
-            if (checkIsFinished()) 
+            if (CheckIsFinished()) 
             { 
                 Debug.Log("you have finished the game");
             }
@@ -52,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private bool checkIsFinished()
+    private bool CheckIsFinished()
     {
         bool finished = true;
         foreach (Item item in items)
