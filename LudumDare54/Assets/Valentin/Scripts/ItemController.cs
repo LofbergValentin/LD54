@@ -70,7 +70,7 @@ public class Controller : MonoBehaviour
 
         if (currentlyHandle != null)
         {
-            if (!Input.GetKey(KeyCode.LeftShift)) 
+            if (!Input.GetKey(KeyCode.LeftShift))
             {
                 // Get the mouse position in screen space.
                 Vector3 mousePosition = Input.mousePosition;
@@ -84,6 +84,14 @@ public class Controller : MonoBehaviour
 
                 // Set the new position for the GameObject, affecting both X and Y axes.
                 currentlyHandle.transform.position = new Vector3(xPosition, yPosition, currentlyHandle.transform.position.z);
+            }
+            else if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftShift))
+            {
+                currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y, currentlyHandle.transform.rotation.eulerAngles.z + 90f));
+            }
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y + 90f, currentlyHandle.transform.rotation.eulerAngles.z));
             }
             else
             {

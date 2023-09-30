@@ -5,16 +5,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
 
     [SerializeField]List<Item> items;
     Point testPoint, testPoint2;
     [SerializeField] Suitcase valise;
+
+    public static GameManager Instance { get => instance; set => instance = value; }
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
         testPoint=valise.GetPoint(0);
         testPoint2 = valise.GetPoint(6);
     }
+
     // Update is called once per frame
     void Update()
     {

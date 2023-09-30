@@ -29,7 +29,7 @@ public class Suitcase : MonoBehaviour
 			{
 				for (int k = 0; k < length; k++)
 				{
-					this.points.Add(new Point(new Vector3(i,j,k)));
+					this.points.Add(new Point(transform.position + new Vector3(i,j,k)));
 				}
 			}
 		}
