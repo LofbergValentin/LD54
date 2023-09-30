@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private ItemHandler currentlyHandle;
-    private Vector3 currentlyHandleTransform;
+    private Vector3 currentlyHandlePosition;
 
     public float moveSpeed = 5f; // Adjust the speed of movement.
     public float minX = -5f;     // Minimum X-axis position.
@@ -37,32 +37,32 @@ public class Controller : MonoBehaviour
                     currentlyHandle = hit.transform.GetComponentInParent<ItemHandler>();
                     timeClicked = ellapsedTime;
 
-                    currentlyHandleTransform = currentlyHandle.transform.position;
-                    if (currentlyHandleTransform.x < minX)
+                    currentlyHandlePosition = currentlyHandle.transform.position;
+                    if (currentlyHandlePosition.x < minX)
                     {
-                        currentlyHandleTransform = new Vector3(minX, currentlyHandleTransform.y, currentlyHandleTransform.z);
+                        currentlyHandlePosition = new Vector3(minX, currentlyHandlePosition.y, currentlyHandlePosition.z);
                     }
-                    else if (currentlyHandleTransform.x > maxX)
+                    else if (currentlyHandlePosition.x > maxX)
                     {
-                        currentlyHandleTransform = new Vector3(maxX, currentlyHandleTransform.y, currentlyHandleTransform.z);
-                    }
-
-                    if (currentlyHandleTransform.y < minY)
-                    {
-                        currentlyHandleTransform = new Vector3(currentlyHandleTransform.x, minY, currentlyHandleTransform.z);
-                    }
-                    else if (currentlyHandleTransform.y > maxY)
-                    {
-                        currentlyHandleTransform = new Vector3(currentlyHandleTransform.x, maxY, currentlyHandleTransform.z);
+                        currentlyHandlePosition = new Vector3(maxX, currentlyHandlePosition.y, currentlyHandlePosition.z);
                     }
 
-                    if (currentlyHandleTransform.z < minZ)
+                    if (currentlyHandlePosition.y < minY)
                     {
-                        currentlyHandleTransform = new Vector3(currentlyHandleTransform.x, currentlyHandleTransform.y, minZ);
+                        currentlyHandlePosition = new Vector3(currentlyHandlePosition.x, minY, currentlyHandlePosition.z);
                     }
-                    else if (currentlyHandleTransform.z > maxZ)
+                    else if (currentlyHandlePosition.y > maxY)
                     {
-                        currentlyHandleTransform = new Vector3(currentlyHandleTransform.x, currentlyHandleTransform.y, maxZ);
+                        currentlyHandlePosition = new Vector3(currentlyHandlePosition.x, maxY, currentlyHandlePosition.z);
+                    }
+
+                    if (currentlyHandlePosition.z < minZ)
+                    {
+                        currentlyHandlePosition = new Vector3(currentlyHandlePosition.x, currentlyHandlePosition.y, minZ);
+                    }
+                    else if (currentlyHandlePosition.z > maxZ)
+                    {
+                        currentlyHandlePosition = new Vector3(currentlyHandlePosition.x, currentlyHandlePosition.y, maxZ);
                     }
                 }
             }
@@ -112,8 +112,37 @@ public class Controller : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && timeClicked + 0.1f < ellapsedTime)
             {
                 Debug.Log("Release item");
-                currentlyHandle = null;
+                if(SnapToGrid(currentlyHandle.transform.position))
+                {
+                    currentlyHandle = null;
+                }
             }
+        }
+    }
+
+    private bool SnapToGrid(Vector3 itemPosition)
+    {
+        List<Point> validPoints = new List<Point>();
+
+        Bounds bound = new Bounds(itemPosition,Vector3.one);
+        foreach(Point point in GameManager.Instance.valise.Points)
+        {
+            if (bound.Contains(point.Position))
+            {
+                validPoints.Add(point);
+            }
+        }
+
+        if(validPoints.Count == 1)
+        {
+            currentlyHandle.transform.position = validPoints[0].Position;
+            GameManager.Instance.SetItemIntoSuitcase(currentlyHandle.Item, validPoints[0]);
+            return true;
+        }
+        else
+        {
+            Debug.Log("No point available here");
+            return false;
         }
     }
 }

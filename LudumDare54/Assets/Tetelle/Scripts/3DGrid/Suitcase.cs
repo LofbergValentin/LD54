@@ -14,7 +14,9 @@ public class Suitcase : MonoBehaviour
 
 	[SerializeField] private List<Point> points;
 
-	public Suitcase(int height, int width, int length)
+    public List<Point> Points { get => points; set => points = value; }
+
+    public Suitcase(int height, int width, int length)
 	{
 		this.height = height;
 		this.width = width;
@@ -22,21 +24,21 @@ public class Suitcase : MonoBehaviour
 	}
 	private void Awake()
 	{
-        points = new List<Point>();
+        Points = new List<Point>();
 		for (int i = 0; i < width; i++)
 		{
 			for (int j = 0; j < height; j++)
 			{
 				for (int k = 0; k < length; k++)
 				{
-					this.points.Add(new Point(transform.position + new Vector3(i,j,k)));
+					this.Points.Add(new Point(transform.position + new Vector3(i,j,k)));
 				}
 			}
 		}
 	}
     private void OnDrawGizmos() 
     {
-        foreach (Point point in points)
+        foreach (Point point in Points)
         {
 			Gizmos.color = Color.blue;
             Gizmos.DrawCube(new Vector3(point.Position.x, point.Position.y,point.Position.z), cubeSize);   
@@ -45,7 +47,7 @@ public class Suitcase : MonoBehaviour
 
 	public Point GetPoint(int index)
 	{
-		return points[index];
+		return Points[index];
 	}
 
 	public bool containsFullPoint(List<Vector3> vector3s, Point start)
@@ -53,7 +55,7 @@ public class Suitcase : MonoBehaviour
         bool contains = false;
 		foreach(Vector3 vector3 in vector3s)
 		{
-			foreach(Point point in points)
+			foreach(Point point in Points)
 			{
                 if ((vector3.x+start.Position.x) == point.Position.x &&  (vector3.y + start.Position.y) == point.Position.y && (vector3.z + start.Position.z) == point.Position.z && point.IsFull)
 				{
@@ -66,7 +68,7 @@ public class Suitcase : MonoBehaviour
 		{
             foreach (Vector3 vector3 in vector3s)
             {
-                foreach (Point point in points)
+                foreach (Point point in Points)
                 {
                     if ((vector3.x + start.Position.x) == point.Position.x && (vector3.y + start.Position.y) == point.Position.y && (vector3.z + start.Position.z) == point.Position.z)
                     {
