@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -63,6 +64,11 @@ public class Controller : MonoBehaviour
         {
             currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y + 90f, currentlyHandle.transform.rotation.eulerAngles.z));
         }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            PlaceItem();
+            currentlyHandle = null;
+        }
 
     }
 
@@ -86,7 +92,9 @@ public class Controller : MonoBehaviour
     {
         for (int i = 1; i < 5; i++)
         {
-            Point newPoint = grid.Points.Find(_ => _.Position.x == currentlyHandle.CurrentPoint.Position.x + (i * axis) && !_.IsFull);
+            Vector3 pointPositionAdapted;
+            pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x + (i * axis), currentlyHandle.CurrentPoint.Position.y, currentlyHandle.CurrentPoint.Position.z);
+            Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
             if (newPoint != null)
             {
                 currentlyHandle.CurrentPoint = newPoint;
@@ -99,9 +107,11 @@ public class Controller : MonoBehaviour
 
     private void MoveY(int axis)
     {
+        Vector3 pointPositionAdapted;
         for (int i = 1; i < 5; i++)
         {
-            Point newPoint = grid.Points.Find(_ => _.Position.y == currentlyHandle.CurrentPoint.Position.y + (i * axis) && !_.IsFull);
+            pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x, currentlyHandle.CurrentPoint.Position.y + (i * axis), currentlyHandle.CurrentPoint.Position.z);
+            Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
             if (newPoint != null)
             {
                 currentlyHandle.CurrentPoint = newPoint;
@@ -114,9 +124,11 @@ public class Controller : MonoBehaviour
 
     private void MoveZ(int axis)
     {
+        Vector3 pointPositionAdapted;
         for (int i = 1; i < 5; i++)
         {
-            Point newPoint = grid.Points.Find(_ => _.Position.z == currentlyHandle.CurrentPoint.Position.z + (i * axis) && !_.IsFull);
+            pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x, currentlyHandle.CurrentPoint.Position.y, currentlyHandle.CurrentPoint.Position.z + (i * axis));
+            Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
             if (newPoint != null)
             {
                 currentlyHandle.CurrentPoint = newPoint;
@@ -129,6 +141,6 @@ public class Controller : MonoBehaviour
 
     public void PlaceItem()
     {
-        currentlyHandle.CurrentPoint.IsFull = true;
+        grid.ContainsFullPoint(currentlyHandle.Item, currentlyHandle.CurrentPoint);
     }
 }

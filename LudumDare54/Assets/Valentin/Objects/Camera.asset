@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Camera
   Points:
-  - {x: 0, y: 0, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: -1, y: 0, z: -1}
-  - {x: -1, y: 0, z: 1}
+  - Position: {x: 0, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: -1, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: -1, y: 0, z: -1}
+    IsFull: 0
+  - Position: {x: -1, y: 0, z: 1}
+    IsFull: 0
   Prefab: {fileID: 2257647946618238173, guid: 4d1516b7175b85145b1fe37eb78d829d, type: 3}
   IsStocked: 0

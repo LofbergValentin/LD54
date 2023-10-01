@@ -9,6 +9,5 @@ public class Item : ScriptableObject
     public string DisplayName;
     public List<Point> Points;
     public GameObject Prefab;
-    public bool IsStocked = false;
-       
+    public bool IsStocked = false;       
 }

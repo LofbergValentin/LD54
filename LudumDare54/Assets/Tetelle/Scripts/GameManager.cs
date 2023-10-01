@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void SetItemIntoSuitcase(Item item, Point point)
     {
-        bool busy = valise.ContainsFullPoint(item.Points, point);
+        bool busy = valise.ContainsFullPoint(item, point);
         if (!busy)
         {
             item.IsStocked = true;
