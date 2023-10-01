@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e867feb4fb4eef4a9498008a5fda61b, type: 3}
-  m_Name: 2-1-1
+  m_Name: Hat
   m_EditorClassIdentifier: 
-  DisplayName: PIle vetement 1
+  DisplayName: 
   Points:
   - Position: {x: 0, y: 0, z: 0}
     IsFull: 0
@@ -22,5 +22,13 @@ MonoBehaviour:
     IsFull: 0
   - Position: {x: 0, y: 0, z: -1}
     IsFull: 0
-  Prefab: {fileID: 1917216186902648065, guid: e1dcaef43989f04498751dc30ff793cb, type: 3}
+  - Position: {x: 0, y: 1, z: -1}
+    IsFull: 0
+  - Position: {x: -1, y: 1, z: 0}
+    IsFull: 0
+  - Position: {x: -1, y: 1, z: -1}
+    IsFull: 0
+  - Position: {x: 0, y: 1, z: 0}
+    IsFull: 0
+  Prefab: {fileID: 4703540121444487754, guid: 735cbcfadbb2eef43a2317904388503a, type: 3}
   IsStocked: 0
