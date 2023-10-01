@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5402727975127690015}
   - component: {fileID: 4358701157763176075}
   - component: {fileID: 1634541465822300884}
+  - component: {fileID: 9199207107589114707}
   m_Layer: 0
   m_Name: bouee
   m_TagString: Untagged
@@ -93,3 +94,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9199207107589114707
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787384581465890751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9015686384795481861, guid: 2700e60925368b6469914e886a4d65b1, type: 3}
