@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e867feb4fb4eef4a9498008a5fda61b, type: 3}
+  m_Name: Snake
+  m_EditorClassIdentifier: 
+  DisplayName: Snake
+  Points:
+  - Position: {x: 0, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: 0, y: 0, z: 1}
+    IsFull: 0
+  - Position: {x: 0, y: 1, z: 1}
+    IsFull: 0
+  - Position: {x: 1, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: 1, y: -1, z: 0}
+    IsFull: 0
+  Prefab: {fileID: 7174185486902960473, guid: c3c3875d86d4c494f97ee9965a478220, type: 3}
+  IsStocked: 0
