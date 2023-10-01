@@ -102,6 +102,6 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 0.9245283, g: 0.6759523, b: 0.8112882, a: 1}
     - _LowColor: {r: 0.8773585, g: 0.5255874, b: 0.716673, a: 1}
-    - _OutlineColor: {r: 0.6132076, g: 0.17348444, b: 0.026032386, a: 1}
+    - _OutlineColor: {r: 0.027450988, g: 0.39600268, b: 0.6117647, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
