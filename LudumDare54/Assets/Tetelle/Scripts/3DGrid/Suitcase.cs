@@ -74,6 +74,7 @@ public class Suitcase : MonoBehaviour
         }
         if (CheckIfAllPointsAreFull())
         {
+            Debug.Log("Finished");
             GameManager.Instance.Finished = true;
         }
     }
