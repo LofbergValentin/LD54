@@ -101,11 +101,11 @@ public class Suitcase : MonoBehaviour
         {
             foreach (Point onePointGrid in Points)
             {
-                if((oneRotatedPointItem.Position.x + start.Position.x) < 0 || (oneRotatedPointItem.Position.y + start.Position.y) <0 || (oneRotatedPointItem.Position.z + start.Position.z) <0 || (oneRotatedPointItem.Position.x + start.Position.x) > width || (oneRotatedPointItem.Position.y + start.Position.y) < height || (oneRotatedPointItem.Position.z + start.Position.z) < length)
+                if((oneRotatedPointItem.Position.x + start.Position.x) < -2.5 || (oneRotatedPointItem.Position.y + start.Position.y) <-3 || (oneRotatedPointItem.Position.z + start.Position.z) <-3 || (oneRotatedPointItem.Position.x + start.Position.x) > width || (oneRotatedPointItem.Position.y + start.Position.y) > height || (oneRotatedPointItem.Position.z + start.Position.z) > length)
                 {
-                    return true;
+                    return false;
                 }
-                if ((oneRotatedPointItem.Position.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.Position.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.Position.z + start.Position.z) == onePointGrid.Position.z && onePointGrid.IsFull)
+                if((oneRotatedPointItem.Position.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.Position.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.Position.z + start.Position.z) == onePointGrid.Position.z && onePointGrid.IsFull)
                 {
                     return false;
                 }

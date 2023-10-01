@@ -60,15 +60,24 @@ public class Controller : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftShift) && rotation)
         {
-            currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y, currentlyHandle.transform.rotation.eulerAngles.z + 90f));
+            currentlyHandle.transform.Rotate(0, 0, 90);
         }
         else if (Input.GetKeyDown(KeyCode.R) && rotation)
         {
-            currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y + 90f, currentlyHandle.transform.rotation.eulerAngles.z));
+            currentlyHandle.transform.Rotate(0, 90, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && rotation)
+        {
+            currentlyHandle.transform.Rotate(90, 0, 0);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             PlaceItem();
+            currentlyHandle = null;
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            currentlyHandle.transform.SetPositionAndRotation(currentlyHandle.StartPosition, currentlyHandle.StartRotation);
             currentlyHandle = null;
         }
 
@@ -86,7 +95,7 @@ public class Controller : MonoBehaviour
 
         foreach(Point point in grid.Points)
         {
-            if (!point.IsFull)
+            if (grid.CheckPointForItem(currentlyHandle, point))
             {
                 currentlyHandle.CurrentPoint = point;
                 currentlyHandle.transform.position = point.Position;
@@ -111,7 +120,10 @@ public class Controller : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("No available point on the left");
+        if(axis == -1)
+            Debug.Log("No available point on the left");
+        else
+            Debug.Log("No available point on the right");
     }
 
     private void MoveY(int axis)
@@ -128,7 +140,10 @@ public class Controller : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("No available point on the left");
+        if (axis == -1)
+            Debug.Log("No available point on the down");
+        else
+            Debug.Log("No available point on the up");
     }
 
     private void MoveZ(int axis)
@@ -145,7 +160,10 @@ public class Controller : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("No available point on the left");
+        if (axis == -1)
+            Debug.Log("No available point backward");
+        else
+            Debug.Log("No available point frontward");
     }
 
     public void PlaceItem()

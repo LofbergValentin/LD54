@@ -10,21 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e867feb4fb4eef4a9498008a5fda61b, type: 3}
-  m_Name: Book
+  m_Name: Petit-I
   m_EditorClassIdentifier: 
-  DisplayName: Book
+  DisplayName: Lampe torche
   Points:
   - Position: {x: 0, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 0, y: 0, z: 1}
+  - Position: {x: 0, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 1, y: 0, z: 1}
-    IsFull: 0
-  - Position: {x: 2, y: 0, z: 1}
-    IsFull: 0
-  - Position: {x: 1, y: 0, z: 0}
-    IsFull: 0
-  - Position: {x: 2, y: 0, z: 0}
-    IsFull: 0
-  Prefab: {fileID: 3927835091833170854, guid: 2c55d52f1ded098469e472fd7446cb7a, type: 3}
+  Prefab: {fileID: 752802889164689421, guid: 236516449e4004149ac82b28bd03cc70, type: 3}
   IsStocked: 0
