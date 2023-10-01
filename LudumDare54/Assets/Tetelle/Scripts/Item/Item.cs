@@ -7,7 +7,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string DisplayName;
-    public List<Vector3> Points;
+    public List<Point> Points;
     public GameObject Prefab;
     public bool IsStocked = false;
        

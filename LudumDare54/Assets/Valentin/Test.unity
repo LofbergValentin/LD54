@@ -158,8 +158,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 778676671}
+  m_Follow: {fileID: 778676671}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -252,6 +252,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a58b27c7f6634340b7ed0ae6b89e557, type: 3}
+--- !u!1 &769077137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769077139}
+  - component: {fileID: 769077138}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &769077138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769077137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318cf1899d5e0a64db15dd345bbccb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 42b298fcaf066d341a49ec351fd45346, type: 2}
+  valise: {fileID: 2127031667}
+--- !u!4 &769077139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769077137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1020381, y: -1.6644268, z: -1.6849794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &778676670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,7 +474,6 @@ GameObject:
   - component: {fileID: 1092127555}
   - component: {fileID: 1092127554}
   - component: {fileID: 1092127556}
-  - component: {fileID: 1092127557}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -447,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefd6651b7ecd74429fa401388b12e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid: {fileID: 2127031667}
   rotation: 1
   moveSpeed: 5
   minX: -2.25
@@ -486,21 +533,6 @@ MonoBehaviour:
   zoomScale: 0.5
   camZoomInMax: 5
   camZoomOutMax: 15
---- !u!114 &1092127557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092127553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318cf1899d5e0a64db15dd345bbccb94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 42b298fcaf066d341a49ec351fd45346, type: 2}
-  valise: {fileID: 2127031667}
 --- !u!1 &1192369933
 GameObject:
   m_ObjectHideFlags: 3
@@ -1558,6 +1590,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1417005217}
   - {fileID: 1092127555}
+  - {fileID: 769077139}
   - {fileID: 1437345755}
   - {fileID: 643856768}
   - {fileID: 778676670}

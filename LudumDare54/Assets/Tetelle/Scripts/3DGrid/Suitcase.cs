@@ -50,10 +50,16 @@ public class Suitcase : MonoBehaviour
 		return Points[index];
 	}
 
-	public bool ContainsFullPoint(List<Vector3> vector3s, Point start)
+	public bool ContainsFullPoint(Item item, Point start)
 	{
         bool contains = false;
-		foreach(Vector3 vector3 in vector3s)
+		List<Vector3> pointPositions = new List<Vector3>();
+		foreach(Point point in item.Points)
+		{
+			pointPositions.Add(point.Position);
+		}
+
+		foreach(Vector3 vector3 in pointPositions)
 		{
 			foreach(Point point in Points)
 			{
@@ -66,7 +72,7 @@ public class Suitcase : MonoBehaviour
 		}
 		if (!contains)
 		{
-            foreach (Vector3 vector3 in vector3s)
+            foreach (Vector3 vector3 in pointPositions)
             {
                 foreach (Point point in Points)
                 {
