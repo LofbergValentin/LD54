@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour
     private ItemHandler currentlyHandle;
     private Vector3 currentlyHandlePosition;
 
+    [SerializeField] bool rotation;
+
     public float moveSpeed = 5f; // Adjust the speed of movement.
     public float minX = -5f;     // Minimum X-axis position.
     public float maxX = 5f;      // Maximum X-axis position.
@@ -85,11 +87,11 @@ public class Controller : MonoBehaviour
                 // Set the new position for the GameObject, affecting both X and Y axes.
                 currentlyHandle.transform.position = new Vector3(xPosition, yPosition, currentlyHandle.transform.position.z);
             }
-            else if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftShift))
+            else if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftShift) && rotation)
             {
                 currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y, currentlyHandle.transform.rotation.eulerAngles.z + 90f));
             }
-            else if (Input.GetKeyDown(KeyCode.R))
+            else if (Input.GetKeyDown(KeyCode.R) && rotation)
             {
                 currentlyHandle.transform.rotation = Quaternion.Euler(new Vector3(currentlyHandle.transform.rotation.eulerAngles.x, currentlyHandle.transform.rotation.eulerAngles.y + 90f, currentlyHandle.transform.rotation.eulerAngles.z));
             }
