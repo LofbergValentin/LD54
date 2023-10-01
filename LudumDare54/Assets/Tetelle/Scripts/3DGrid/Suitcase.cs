@@ -37,6 +37,7 @@ public class Suitcase : MonoBehaviour
 			}
 		}
 	}
+
     private void OnDrawGizmos() 
     {
         foreach (Point pointGrid in Points)
@@ -70,6 +71,10 @@ public class Suitcase : MonoBehaviour
                     }
                 }
             }
+        }
+        if (CheckIfAllPointsAreFull())
+        {
+            GameManager.Instance.Finished = true;
         }
     }
 
@@ -142,4 +147,14 @@ public class Suitcase : MonoBehaviour
         }
 		return rotatedPoint;
 	}
+
+    private bool CheckIfAllPointsAreFull()
+    {
+        Point emptyPoint = Points.Find(_ => !_.IsFull);
+        if(emptyPoint != null)
+        {
+            return false;
+        }
+        return true;
+    }
 }

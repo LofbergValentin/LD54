@@ -24,11 +24,11 @@ public class CameraController : MonoBehaviour
             transposer.m_FollowOffset = new Vector3(transposer.m_FollowOffset.x + (Input.mouseScrollDelta.y * zoomScale), transposer.m_FollowOffset.y, transposer.m_FollowOffset.z);
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || GameManager.Instance.Finished)
         {
             _cam.enabled = true;
         }
-        else if (_cam.enabled == true)
+        else if (_cam.enabled == true )
         {
             _cam.enabled = false;
         }

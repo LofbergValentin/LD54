@@ -7,8 +7,13 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
-    [SerializeField]List<Item> items;
-    public Suitcase valise;
+    public bool Finished;
+
+    private float ellapsedTime;
+
+    public Level CurrentLevel;
+
+    public float startDelay = 3f;
 
     public static GameManager Instance { get => instance; set => instance = value; }
 
@@ -24,36 +29,25 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+
+        Finished = true;
     }
 
-    /*public void SetItemIntoSuitcase(ItemHandler item, Point point)
+    private void Update()
     {
-        bool busy = valise.ContainsFullPoint(item, point);
-        if (!busy)
+        if(!Finished)
         {
-            item.Item.IsStocked = true;
-            if (CheckIsFinished()) 
-            { 
-                Debug.Log("you have finished the game");
-            }
-        }
-        else
-        {
-            Debug.Log("Point already full");
-        }
+            ellapsedTime += Time.deltaTime;
+        }               
     }
 
-    private bool CheckIsFinished()
+    public void StartLevel()
     {
-        bool finished = true;
-        foreach (Item item in items)
-        {
-            Debug.Log(item.DisplayName + " " + item.IsStocked);
-            if(!item.IsStocked)
-            {
-                finished = false;
-            }
-        }
-        return finished;
-    }*/
+        //GameObject.Find(CurrentLevel.ItemsToPlace).SetActive(true);
+    }
+
+    public void EndLevel()
+    {
+
+    }
 }
