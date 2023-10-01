@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void SetItemIntoSuitcase(Item item, Point point)
+    /*public void SetItemIntoSuitcase(ItemHandler item, Point point)
     {
         bool busy = valise.ContainsFullPoint(item, point);
         if (!busy)
         {
-            item.IsStocked = true;
+            item.Item.IsStocked = true;
             if (CheckIsFinished()) 
             { 
                 Debug.Log("you have finished the game");
@@ -55,5 +55,5 @@ public class GameManager : MonoBehaviour
             }
         }
         return finished;
-    }
+    }*/
 }

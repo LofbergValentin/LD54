@@ -1,8 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Color = UnityEngine.Color;
 
 public class Suitcase : MonoBehaviour
 {
@@ -40,7 +41,10 @@ public class Suitcase : MonoBehaviour
     {
         foreach (Point pointGrid in Points)
         {
-			Gizmos.color = Color.blue;
+			if(pointGrid.IsFull)
+                Gizmos.color = Color.red;
+			else
+				Gizmos.color = Color.blue;
             Gizmos.DrawCube(new Vector3(pointGrid.Position.x, pointGrid.Position.y, pointGrid.Position.z), cubeSize);   
         } 
     }
@@ -50,48 +54,92 @@ public class Suitcase : MonoBehaviour
 		return Points[index];
 	}
 
-	public bool ContainsFullPoint(ItemHandler item, Point start)
-	{
-		List<Vector3> rotatedPoints = new List<Vector3>();
-		Quaternion rotationQuater = item.Item.Prefab.transform.rotation;
-
-		foreach(Point positionItem in item.Item.Points)
-		{
-            rotatedPoints.Add(getPointAfterRotation(positionItem.Position, rotationQuater));
-		}
-
-        bool contains = false;
-
-		foreach(Vector3 oneRotatedPointItem in rotatedPoints)
-		{
-			foreach(Point onePointGrid in Points)
-			{
-                if ((oneRotatedPointItem.x+start.Position.x) == onePointGrid.Position.x &&  (oneRotatedPointItem.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.z + start.Position.z) == onePointGrid.Position.z && onePointGrid.IsFull)
-				{
-                    contains = true;
-					break;
-				}
-			}
-		}
-		if (!contains)
-		{
-            foreach (Vector3 oneRotatedPointItem in rotatedPoints)
+    public void ContainsFullPoint(ItemHandler item, Point start)
+    {
+        List<Point> rotatedPoints = GenerateRotatedPosition(item);
+        if (CheckPointForItem(item, start))
+        {
+            foreach (Point itemPoint in rotatedPoints)
             {
                 foreach (Point onePointGrid in Points)
                 {
-                    if ((oneRotatedPointItem.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.z + start.Position.z) == onePointGrid.Position.z)
+                    if ((itemPoint.Position.x + start.Position.x) == onePointGrid.Position.x && (itemPoint.Position.y + start.Position.y) == onePointGrid.Position.y && (itemPoint.Position.z + start.Position.z) == onePointGrid.Position.z)
                     {
-                        onePointGrid.IsFull=true;
+                        onePointGrid.IsFull = true;
+                        break;
                     }
                 }
             }
         }
-		return contains;
-	}
+    }
 
-	private Vector3 getPointAfterRotation(Vector3 pointItem, Quaternion rotation)
+    public void RemoveItemFromGrid(ItemHandler item, Point start)
+    {
+        List<Point> rotatedPoints = GenerateRotatedPosition(item);
+        foreach (Point oneRotatedPointItem in rotatedPoints)
+        {
+            foreach (Point onePointGrid in Points)
+            {
+                if ((oneRotatedPointItem.Position.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.Position.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.Position.z + start.Position.z) == onePointGrid.Position.z)
+                {
+                    onePointGrid.IsFull = false;
+                    break;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Return true if all the point occupied by the player are free else return false
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckPointForItem(ItemHandler item, Point start)
 	{
-		Vector3 rotatedPoint = rotation * pointItem;
+        List<Point> rotatedPoints = GenerateRotatedPosition(item);
+
+        foreach (Point oneRotatedPointItem in rotatedPoints)
+        {
+            foreach (Point onePointGrid in Points)
+            {
+                if((oneRotatedPointItem.Position.x + start.Position.x) < 0 || (oneRotatedPointItem.Position.y + start.Position.y) <0 || (oneRotatedPointItem.Position.z + start.Position.z) <0 || (oneRotatedPointItem.Position.x + start.Position.x) > width || (oneRotatedPointItem.Position.y + start.Position.y) < height || (oneRotatedPointItem.Position.z + start.Position.z) < length)
+                {
+                    return true;
+                }
+                if ((oneRotatedPointItem.Position.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.Position.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.Position.z + start.Position.z) == onePointGrid.Position.z && onePointGrid.IsFull)
+                {
+                    return false;
+                }
+            }
+        }
+		return true;
+    }
+
+	private List<Point> GenerateRotatedPosition(ItemHandler item)
+	{
+        List<Point> rotatedPoints = new List<Point>();
+        Quaternion rotationQuater = item.transform.rotation;
+
+        rotatedPoints = GetPointAfterRotation(item.Item.Points, rotationQuater);
+
+        return rotatedPoints;
+    }
+
+    private List<Point> GetPointAfterRotation(List<Point> points, Quaternion rotation)
+	{
+        List<Point> rotatedPoint = new List<Point>();
+        Point tempPoint;
+        if (rotation == Quaternion.identity)
+            return points;
+        else
+        {
+            foreach(Point point in points)
+            {
+                tempPoint = new Point(point.Position);
+                tempPoint.Position = rotation * tempPoint.Position;
+                tempPoint.Position = new Vector3(Mathf.Round(tempPoint.Position.x * 2) / 2, Mathf.Round(tempPoint.Position.y * 2) / 2, Mathf.Round(tempPoint.Position.z * 2) / 2);
+                rotatedPoint.Add(tempPoint);
+            }
+        }
 		return rotatedPoint;
 	}
 }

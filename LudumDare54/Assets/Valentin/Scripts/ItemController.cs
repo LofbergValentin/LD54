@@ -27,6 +27,8 @@ public class Controller : MonoBehaviour
                 if (hit.transform.GetComponentInParent<ItemHandler>() != null)
                 {
                     currentlyHandle = hit.transform.GetComponentInParent<ItemHandler>();
+                    if(currentlyHandle.CurrentPoint != null)
+                        grid.RemoveItemFromGrid(currentlyHandle, currentlyHandle.CurrentPoint);
                     PutItemOnTheGrid();
                 }
             }
@@ -73,8 +75,15 @@ public class Controller : MonoBehaviour
     }
 
 
-    private void PutItemOnTheGrid()
+    private void PutItemOnTheGrid(Point _point = null)
     {
+        if(_point != null)
+        {
+            currentlyHandle.CurrentPoint = _point;
+            currentlyHandle.transform.position = _point.Position;
+            return;
+        }
+
         foreach(Point point in grid.Points)
         {
             if (!point.IsFull)
@@ -95,7 +104,7 @@ public class Controller : MonoBehaviour
             Vector3 pointPositionAdapted;
             pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x + (i * axis), currentlyHandle.CurrentPoint.Position.y, currentlyHandle.CurrentPoint.Position.z);
             Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
-            if (newPoint != null)
+            if (newPoint != null && grid.CheckPointForItem(currentlyHandle, newPoint))
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
@@ -112,7 +121,7 @@ public class Controller : MonoBehaviour
         {
             pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x, currentlyHandle.CurrentPoint.Position.y + (i * axis), currentlyHandle.CurrentPoint.Position.z);
             Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
-            if (newPoint != null)
+            if (newPoint != null && grid.CheckPointForItem(currentlyHandle, newPoint))
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
@@ -129,7 +138,7 @@ public class Controller : MonoBehaviour
         {
             pointPositionAdapted = new Vector3(currentlyHandle.CurrentPoint.Position.x, currentlyHandle.CurrentPoint.Position.y, currentlyHandle.CurrentPoint.Position.z + (i * axis));
             Point newPoint = grid.Points.Find(_ => _.Position == pointPositionAdapted && !_.IsFull);
-            if (newPoint != null)
+            if (newPoint != null && grid.CheckPointForItem(currentlyHandle, newPoint))
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
@@ -141,6 +150,6 @@ public class Controller : MonoBehaviour
 
     public void PlaceItem()
     {
-        grid.ContainsFullPoint(currentlyHandle.Item, currentlyHandle.CurrentPoint);
+        grid.ContainsFullPoint(currentlyHandle, currentlyHandle.CurrentPoint);
     }
 }

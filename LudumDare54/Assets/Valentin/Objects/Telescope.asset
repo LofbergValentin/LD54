@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e867feb4fb4eef4a9498008a5fda61b, type: 3}
-  m_Name: Camera
+  m_Name: Telescope
   m_EditorClassIdentifier: 
-  DisplayName: Camera
+  DisplayName: Telescope
   Points:
+  - Position: {x: 0, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: 0, y: 0, z: -1}
+    IsFull: 0
   - Position: {x: 0, y: 0, z: 1}
     IsFull: 0
-  - Position: {x: -0, y: 0, z: 0}
+  - Position: {x: 0, y: 0, z: 2}
     IsFull: 0
-  - Position: {x: 1, y: 0, z: 0}
-    IsFull: 0
-  - Position: {x: -1, y: 0, z: 0}
-    IsFull: 0
-  Prefab: {fileID: 2257647946618238173, guid: 4d1516b7175b85145b1fe37eb78d829d, type: 3}
+  Prefab: {fileID: 1086726232197488201, guid: abd680449657827458fa3d01c85e37af, type: 3}
   IsStocked: 0

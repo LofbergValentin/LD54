@@ -684,6 +684,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c830481a35b986841b348075ca96cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  CurrentPoint:
+    Position: {x: 0, y: 0, z: 0}
+    IsFull: 0
 --- !u!1 &6166045070163091360
 GameObject:
   m_ObjectHideFlags: 0
