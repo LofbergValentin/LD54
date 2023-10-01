@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c830481a35b986841b348075ca96cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
+  Item: {fileID: 11400000, guid: 66ab4da1ffa8bc548b3b6896d92664b9, type: 2}
   CurrentPoint:
     Position: {x: 0, y: 0, z: 0}
     IsFull: 0
