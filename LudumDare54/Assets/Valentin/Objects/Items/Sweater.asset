@@ -16,11 +16,11 @@ MonoBehaviour:
   Points:
   - Position: {x: 0, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 0, y: 0, z: 0}
-    IsFull: 0
   - Position: {x: 1, y: 0, z: 0}
     IsFull: 0
   - Position: {x: 2, y: 0, z: 0}
+    IsFull: 0
+  - Position: {x: 3, y: 0, z: 0}
     IsFull: 0
   - Position: {x: 0, y: 0, z: 1}
     IsFull: 0

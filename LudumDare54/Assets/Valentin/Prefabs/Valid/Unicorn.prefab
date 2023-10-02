@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4442401189672956115}
   - component: {fileID: 959799158091386811}
   m_Layer: 0
-  m_Name: bouee
+  m_Name: Unicorn
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
   CurrentPoint:
     Position: {x: 0, y: 0, z: 0}
     IsFull: 0
+  StartPosition: {x: 0, y: 0, z: 0}
+  StartRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &9214320284161330766
 PrefabInstance:
   m_ObjectHideFlags: 0

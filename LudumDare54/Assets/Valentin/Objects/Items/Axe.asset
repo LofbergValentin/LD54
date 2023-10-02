@@ -16,11 +16,11 @@ MonoBehaviour:
   Points:
   - Position: {x: 0, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 0, y: 0, z: 1}
+  - Position: {x: 1, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 0, y: 0, z: -1}
+  - Position: {x: 2, y: 0, z: 0}
     IsFull: 0
-  - Position: {x: 1, y: 0, z: -1}
+  - Position: {x: 2, y: 0, z: -1}
     IsFull: 0
   Prefab: {fileID: 3258312894592166037, guid: 8a58b27c7f6634340b7ed0ae6b89e557, type: 3}
   IsStocked: 0
