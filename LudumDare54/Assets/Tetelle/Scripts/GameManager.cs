@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject cameraTransition;
 
     public Level CurrentLevel;
-
+    bool endGameUIDisplayed;
     public float startDelay = 3f;
 
     public static GameManager Instance { get => instance; set => instance = value; }
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             remainingTime -= Time.deltaTime;
             inGameUI.SetTimer(remainingTime);
         }
-        else if ((Finished && CurrentLevel != null && remainingTime > 0) || remainingTime <0)
+        else if (((Finished && CurrentLevel != null && remainingTime > 0 ) || remainingTime <0)&& !endGameUIDisplayed)
         {
             EndLevel(Finished);
         }
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel(bool win)
     {
+        endGameUIDisplayed = true;
         inGameUI.DisplayUI(false);
         gameOverUI.DisplayUI(true, win, remainingTime);
     }
