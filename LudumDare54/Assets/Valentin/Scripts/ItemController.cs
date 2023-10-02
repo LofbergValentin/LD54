@@ -26,6 +26,7 @@ public class Controller : MonoBehaviour
                 Debug.Log("Hit : " + hit.transform.name);
                 if (hit.transform.GetComponentInParent<ItemHandler>() != null)
                 {
+                    AudioManagerCustom.Instance.PlayClip("SFX_click");
                     currentlyHandle = hit.transform.GetComponentInParent<ItemHandler>();
                     if(currentlyHandle.CurrentPoint != null)
                         grid.RemoveItemFromGrid(currentlyHandle, currentlyHandle.CurrentPoint);
@@ -61,14 +62,17 @@ public class Controller : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftShift) && rotation)
         {
             currentlyHandle.transform.Rotate(0, 0, 90);
+            AudioManagerCustom.Instance.PlayClip("SFX_slouch");
         }
         else if (Input.GetKeyDown(KeyCode.R) && rotation)
         {
             currentlyHandle.transform.Rotate(0, 90, 0);
+            AudioManagerCustom.Instance.PlayClip("SFX_slouch");
         }
         else if (Input.GetKeyDown(KeyCode.E) && rotation)
         {
             currentlyHandle.transform.Rotate(90, 0, 0);
+            AudioManagerCustom.Instance.PlayClip("SFX_slouch");
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -78,6 +82,7 @@ public class Controller : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Escape))
         {
             currentlyHandle.transform.SetPositionAndRotation(currentlyHandle.StartPosition, currentlyHandle.StartRotation);
+            AudioManagerCustom.Instance.PlayClip("SFX_drop");
             currentlyHandle = null;
         }
 
@@ -117,6 +122,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
+                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
                 return;
             }
         }
@@ -137,6 +143,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
+                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
                 return;
             }
         }
@@ -157,6 +164,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
+                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
                 return;
             }
         }
@@ -169,5 +177,6 @@ public class Controller : MonoBehaviour
     public void PlaceItem()
     {
         grid.ContainsFullPoint(currentlyHandle, currentlyHandle.CurrentPoint);
+        AudioManagerCustom.Instance.PlayClip("SFX_drop");
     }
 }
