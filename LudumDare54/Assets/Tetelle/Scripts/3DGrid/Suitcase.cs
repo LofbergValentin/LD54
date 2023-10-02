@@ -15,6 +15,8 @@ public class Suitcase : MonoBehaviour
 
 	[SerializeField] private List<Point> points;
 
+    [SerializeField] private GameObject transitionCamera;
+
     public List<Point> Points { get => points; set => points = value; }
 
     public Suitcase(int height, int width, int length)
@@ -75,6 +77,7 @@ public class Suitcase : MonoBehaviour
         if (CheckIfAllPointsAreFull())
         {
             Debug.Log("Finished");
+            transitionCamera.SetActive(true);
             GameManager.Instance.Finished = true;
         }
     }

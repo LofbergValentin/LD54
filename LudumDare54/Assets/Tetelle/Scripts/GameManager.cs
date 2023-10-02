@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,7 +11,13 @@ public class GameManager : MonoBehaviour
 
     public bool Finished;
 
-    private float ellapsedTime;
+    private float remainingTime;
+
+    [SerializeField] GameObject mainMenuUI;
+    [SerializeField] GameOverUI gameOverUI;
+    [SerializeField] InGameUI inGameUI;
+
+    [SerializeField] GameObject cameraTransition;
 
     public Level CurrentLevel;
 
@@ -33,21 +41,42 @@ public class GameManager : MonoBehaviour
         Finished = true;
     }
 
+    private void Start()
+    {
+        mainMenuUI.SetActive(true);
+    }
+
     private void Update()
     {
         if(!Finished)
         {
-            ellapsedTime += Time.deltaTime;
-        }               
+            remainingTime -= Time.deltaTime;
+            inGameUI.SetTimer(remainingTime);
+        }
+        else if ((Finished && CurrentLevel != null && remainingTime > 0) || remainingTime <0)
+        {
+            EndLevel(Finished);
+        }
     }
 
     public void StartLevel()
     {
-        //GameObject.Find(CurrentLevel.ItemsToPlace).SetActive(true);
+        CurrentLevel.ItemsToPlace.SetActive(true);
+        StartCoroutine(WaitForStart());
     }
 
-    public void EndLevel()
+    private IEnumerator WaitForStart()
     {
+        yield return new WaitForSeconds(3);
+        cameraTransition.SetActive(false);
+        remainingTime = CurrentLevel.timer;
+        Finished = false;
+        inGameUI.DisplayUI(true);
+    }
 
+    public void EndLevel(bool win)
+    {
+        inGameUI.DisplayUI(false);
+        gameOverUI.DisplayUI(true, win, remainingTime);
     }
 }

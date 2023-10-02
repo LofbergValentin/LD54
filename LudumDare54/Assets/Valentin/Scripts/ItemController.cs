@@ -4,7 +4,7 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class ItemController : MonoBehaviour
 {
     private ItemHandler currentlyHandle;
 
@@ -81,9 +81,8 @@ public class Controller : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Escape))
         {
-            currentlyHandle.transform.SetPositionAndRotation(currentlyHandle.StartPosition, currentlyHandle.StartRotation);
-            AudioManagerCustom.Instance.PlayClip("SFX_drop");
-            currentlyHandle = null;
+            ResetItem(currentlyHandle);
+            AudioManagerCustom.Instance.PlayClip("SFX_reset");
         }
 
     }
@@ -122,7 +121,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
-                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
+                AudioManagerCustom.Instance.PlayClip("SFX_slide");
                 return;
             }
         }
@@ -143,7 +142,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
-                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
+                AudioManagerCustom.Instance.PlayClip("SFX_slide");
                 return;
             }
         }
@@ -164,7 +163,7 @@ public class Controller : MonoBehaviour
             {
                 currentlyHandle.CurrentPoint = newPoint;
                 currentlyHandle.transform.position = newPoint.Position;
-                AudioManagerCustom.Instance.PlayClip("SFX_slouch");
+                AudioManagerCustom.Instance.PlayClip("SFX_slide");
                 return;
             }
         }
@@ -178,5 +177,11 @@ public class Controller : MonoBehaviour
     {
         grid.ContainsFullPoint(currentlyHandle, currentlyHandle.CurrentPoint);
         AudioManagerCustom.Instance.PlayClip("SFX_drop");
+    }
+
+    public void ResetItem(ItemHandler item)
+    {
+        item.transform.SetPositionAndRotation(item.StartPosition, item.StartRotation);
+        currentlyHandle = null;
     }
 }

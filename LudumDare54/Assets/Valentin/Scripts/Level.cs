@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "My Assets/Level")]
-public class Level : ScriptableObject
+public class Level : MonoBehaviour
 {
     public string DisplayName;
-    public string ItemsToPlace;
+    public GameObject ItemsToPlace;
     public float timer;
 }
