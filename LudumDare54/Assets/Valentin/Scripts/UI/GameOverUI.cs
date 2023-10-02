@@ -26,7 +26,7 @@ public class GameOverUI : MonoBehaviour
 
     public void HideUI()
     {
-        //backButton.SetActive(false);
+        backButton.SetActive(false);
         winPanel.SetActive(false);
         loosePanel.SetActive(false);
     }
@@ -40,6 +40,5 @@ public class GameOverUI : MonoBehaviour
             itemController.ResetItem(item);
         }
         level.SetActive(false);
-        //backButton.SetActive(false);
     }
 }

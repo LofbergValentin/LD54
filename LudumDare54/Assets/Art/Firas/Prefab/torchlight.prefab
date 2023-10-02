@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!1 &8820229813868918208
-=======
 --- !u!1 &7010095913693578625
->>>>>>> firas
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,16 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 1136537210026848431}
-  - component: {fileID: 6991858018997903686}
-  - component: {fileID: 5181099196167506591}
-  - component: {fileID: 902787524266300607}
-=======
   - component: {fileID: 8404363763875071394}
   - component: {fileID: 249831370662165036}
   - component: {fileID: 3510323305218093715}
->>>>>>> firas
+  - component: {fileID: 2217765618220691264}
   m_Layer: 0
   m_Name: torchlight
   m_TagString: Untagged
@@ -29,21 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
---- !u!4 &1136537210026848431
-=======
 --- !u!4 &8404363763875071394
->>>>>>> firas
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 8820229813868918208}
-=======
   m_GameObject: {fileID: 7010095913693578625}
->>>>>>> firas
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -52,35 +34,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!33 &6991858018997903686
-=======
 --- !u!33 &249831370662165036
->>>>>>> firas
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 8820229813868918208}
-  m_Mesh: {fileID: 2550396882589530091, guid: 8e174479901706d44ad264848980d305, type: 3}
---- !u!23 &5181099196167506591
-=======
   m_GameObject: {fileID: 7010095913693578625}
   m_Mesh: {fileID: 2550396882589530091, guid: 8e174479901706d44ad264848980d305, type: 3}
 --- !u!23 &3510323305218093715
->>>>>>> firas
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 8820229813868918208}
-=======
   m_GameObject: {fileID: 7010095913693578625}
->>>>>>> firas
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -94,15 +62,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-  - {fileID: 2100000, guid: 92d06f9a81e556b4ea7de3c2963d2e62, type: 2}
-  - {fileID: 2100000, guid: 64acf1d72b3a7924ab809c0f75f16e4d, type: 2}
-  - {fileID: 2100000, guid: c699f69c8b8a742408e193735136481b, type: 2}
-=======
   - {fileID: 2100000, guid: fb3ac9e3e914f764cb1675c574e42b9a, type: 2}
-  - {fileID: 2100000, guid: 9365901a83af60c40940f7edb68c6080, type: 2}
+  - {fileID: 2100000, guid: 64acf1d72b3a7924ab809c0f75f16e4d, type: 2}
   - {fileID: 2100000, guid: a3fee70e11edc8a4d87edf806295c091, type: 2}
->>>>>>> firas
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,14 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
-<<<<<<< HEAD
---- !u!64 &902787524266300607
+--- !u!64 &2217765618220691264
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820229813868918208}
+  m_GameObject: {fileID: 7010095913693578625}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -147,5 +108,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2550396882589530091, guid: 8e174479901706d44ad264848980d305, type: 3}
-=======
->>>>>>> firas

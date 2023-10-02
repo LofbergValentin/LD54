@@ -11,4 +11,9 @@ public class UINavigation : MonoBehaviour
         GameManager.Instance.CurrentLevel = level;
         GameManager.Instance.StartLevel();
     }
+
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
