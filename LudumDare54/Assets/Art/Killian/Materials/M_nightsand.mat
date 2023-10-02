@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_jean
+  m_Name: M_nightsand
   m_Shader: {fileID: 4800000, guid: 8fa84e1c8f3a97b4bb416e8eb087630e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -79,9 +79,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HighIntensity: 1.61
-    - _LightScalar: 3.91
-    - _LowIntensity: 0.92
+    - _HighIntensity: 2.82
+    - _LightScalar: 1.04
+    - _LowIntensity: 1.39
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -97,11 +97,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.9339623, g: 0.45015788, b: 0.40970984, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighColor: {r: 0.114587024, g: 0.69352096, b: 0.9716981, a: 1}
-    - _LowColor: {r: 0, g: 0.8135566, b: 0.9811321, a: 1}
-    - _OutlineColor: {r: 0.21106265, g: 0.33336574, b: 0.4811321, a: 1}
+    - _HighColor: {r: 0.76161444, g: 0.91633976, b: 0.990566, a: 1}
+    - _LowColor: {r: 0.3754005, g: 0.65822935, b: 0.7169812, a: 1}
+    - _OutlineColor: {r: 0.3301887, g: 0.2756764, b: 0.27931055, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
