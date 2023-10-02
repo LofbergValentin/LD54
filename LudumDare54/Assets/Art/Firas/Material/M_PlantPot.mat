@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_AxeBrown
+  m_Name: M_PlantPot
   m_Shader: {fileID: 4800000, guid: 8fa84e1c8f3a97b4bb416e8eb087630e, type: 3}
   m_Parent: {fileID: 2100000, guid: aeb699acbbae79c47a96aa608b185149, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -26,6 +26,6 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.3773585, g: 0.05440174, b: 0.0017799971, a: 1}
+    - _Color: {r: 0.4811321, g: 0.16567284, b: 0.16567284, a: 1}
     - _OutlineColor: {r: 0.16862746, g: 0.050980393, b: 0.003921569, a: 1}
   m_BuildTextureStacks: []
