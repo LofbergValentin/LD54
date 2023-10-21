@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         if(!Finished)
         {
-            remainingTime -= Time.deltaTime;
+            remainingTime += Time.deltaTime;
             inGameUI.SetTimer(remainingTime);
         }
         else if (((Finished && CurrentLevel != null && remainingTime > 0 ) || remainingTime <0)&& !endGameUIDisplayed)

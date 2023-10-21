@@ -97,6 +97,21 @@ public class Suitcase : MonoBehaviour
             }
         }
     }
+    public void RemoveItemFromGrid2(ItemHandler item, Point start)
+    {
+        List<Point> rotatedPoints = GenerateRotatedPosition(item);
+        foreach (Point oneRotatedPointItem in rotatedPoints)
+        {
+            foreach (Point onePointGrid in Points)
+            {
+                if /*(*/((oneRotatedPointItem.Position.x + start.Position.x) == onePointGrid.Position.x && (oneRotatedPointItem.Position.y + start.Position.y) == onePointGrid.Position.y && (oneRotatedPointItem.Position.z + start.Position.z) == onePointGrid.Position.z)/*&& Un autre objet n'occupe pas la case)*/
+                {
+                    onePointGrid.IsFull = false;
+                    break;
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Return true if all the point occupied by the player are free else return false
@@ -161,4 +176,5 @@ public class Suitcase : MonoBehaviour
         }
         return true;
     }
+
 }

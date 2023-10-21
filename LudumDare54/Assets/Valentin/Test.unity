@@ -866,8 +866,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+    rgba: 4278220799
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4274,7 +4274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643856766}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826834, y: 0.00000004423793, z: -0.000000018323949, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268343, y: 0.00000008465445, z: -0.00000003506502, w: 0.92387956}
   m_LocalPosition: {x: -0.0000011920929, y: 7, z: -10.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5084,7 +5084,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5218,7 +5218,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.4117647, g: 0.7490196, b: 0.84705883, a: 1}
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14034,7 +14034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Level 3
   ItemsToPlace: {fileID: 1148326568}
-  timer: 120
+  timer: 0
 --- !u!1 &1164684605
 GameObject:
   m_ObjectHideFlags: 0
@@ -14428,7 +14428,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.4117647, g: 0.7490196, b: 0.84705883, a: 1}
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15041,7 +15041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Level 2
   ItemsToPlace: {fileID: 1274669348}
-  timer: 120
+  timer: 0
 --- !u!1 &1286045789
 GameObject:
   m_ObjectHideFlags: 0
@@ -23212,8 +23212,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+    rgba: 4278220799
+  m_fontColor: {r: 1, g: 0.46787477, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23448,8 +23448,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+    rgba: 4278220799
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24127,7 +24127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Level 1
   ItemsToPlace: {fileID: 1657535508}
-  timer: 120
+  timer: 0
 --- !u!1 &1701680937
 GameObject:
   m_ObjectHideFlags: 0
@@ -24195,7 +24195,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4292394857
-  m_fontColor: {r: 0.41176474, g: 0.7490196, b: 0.8470589, a: 1}
+  m_fontColor: {r: 1, g: 0.46666667, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -15,7 +15,7 @@ public class InGameUI : MonoBehaviour
 
     public void SetTimer(float timerValue)
     {
-        var ts = TimeSpan.FromSeconds(timerValue);
-        timer.text = string.Format("{0:00}:{1:00}", ts.TotalMinutes, ts.Seconds);
+        TimeSpan ts = TimeSpan.FromSeconds(timerValue);
+        timer.text = string.Format("{0:00}:{1:00}", ts.TotalMinutes-0.5, ts.Seconds);
     }
 }
